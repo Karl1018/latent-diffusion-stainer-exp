@@ -1,0 +1,14 @@
+lightning:
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 100
+        max_images: 8
+        increase_log_steps: true
+  trainer:
+    benchmark: true
+    accumulate_grad_batches: 2
+    accelerator: ddp
+    gpus: 0,
+    resume_from_checkpoint: logs/2024-09-11T17-30-40_autoencoder_kl_bci/checkpoints/last.ckpt
